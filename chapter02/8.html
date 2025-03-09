@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div :style="{'font-size': fontSize + 'px', color:fontColor}">{{message}}</div>
+        <div :style="styleObj">{{message}}</div>
+        <div :style="getStyle()">{{message}}</div>
+        <div :style="[{color:'green'},{fontWeight:'700'},{fontSize: fontSize2}]">{{message}}</div>
+    </template>
+    <script src="../vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    getStyle() {
+                        return { 
+                            fontSize: this.fontSize + 'px',
+                            color: this.fontColor,
+                        };
+                    },
+                    styleObj: {
+                        fontSize: '100px',
+                        color: 'pink',
+                    },
+                    fontSize: 80,
+                    fontSize2: '200px',
+                    fontColor: 'red',
+                    message: 'Hello Vue 3!',
+                };
+            },
+            methods: {},
+        };
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>

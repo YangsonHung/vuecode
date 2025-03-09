@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <button v-on:click="myClick(1111, 999, $event)">点击</button>
+        <div v-bind:class="'box'" v-on:mousemove="mouseMove"></div>
+        <br>
+        <div :class="greenBox" @click="myClick">单击简写</div>
+        <button @click="count++">绑定表达式:{{count}}</button>
+        <div :class="blueBox" v-on="{click: myClick, mousemove: mouseMove}">绑定对象</div>
+        <div :class="blueBox" @="{click: myClick, mousemove: mouseMove}">绑定对象简写</div>
+        <br>
+        <button v-bind:onclick="myClick">v-bind绑定onclick</button>
+    </template>
+    <script src="../vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    count: 0,
+                    greenBox: 'box green',
+                    blueBox: 'box blue',
+                    message: 'Hello Vue 3!',
+                };
+            },
+            methods: {
+                myClick(e, a, b) {
+                    console.log('e:', e);
+
+                    console.log('a :>> ', a);
+                    console.log('b :>> ', b);
+                    alert("myClick")
+                },
+                mouseMove() {
+                    console.log('mouseMove');
+
+                }
+            },
+        };
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>

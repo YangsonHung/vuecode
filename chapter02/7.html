@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <template id="my-app">
+            <a target="_blank" v-bind:href="link">百度</a>
+            <br />
+            <a target="_blank" :href="link">百度</a>
+            <!-- <img :src="url" alt="" width="100" /> -->
+            <div :class="className">class绑定字符串abc</div>
+            <div :class="'111'">class绑定字符串111</div>
+            <div class="2222">class绑定字符串2222</div>
+            <div :class="{'active':true, green: isGreen}">class绑定对象</div>
+            <div class="99999" :class="{'active':true, green: isGreen}">默认class和动态class</div>
+            <div :class="classObj">绑定属性中的对象</div>
+            <div :class="getClassObj()">绑定方法</div>
+            <br>
+
+            <div :class="['abc', 'bcd']">绑定数组</div>
+            <div :class="['abc888', className, isGreen ? 'green' : '']">绑定数组</div>
+            <div :class="['abc888', className, isGreen ? 'green' : '', { isActive: true }]">绑定数组</div>
+            <div :class="['abc888', className, isGreen ? 'green' : '', { isActive: true }, classObj]">绑定数组</div>
+        </template>
+        <script src="../vue.global.js"></script>
+        <script>
+            const App = {
+                template: '#my-app',
+                data() {
+                    return {
+                        classObj: {
+                            isActive: true,
+                            isMan: true
+                        },
+                        isGreen: true,
+                        className: 'abc',
+                        message: 'Hello Vue 3!',
+                        link: 'https://www.baidu.com',
+                        url: 'https://v2.cn.vuejs.org/images/logo.svg',
+                    };
+                },
+                methods: {
+                    getClassObj() {
+                        return {
+                            isActive: true
+                        }
+                    }
+                },
+            };
+            Vue.createApp(App).mount('#app');
+        </script>
+    </body>
+</html>

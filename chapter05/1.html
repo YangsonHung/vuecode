@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #c7edcc;">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <template id="my-component">
+        <div>My Component</div>
+    </template>
+
+    <template id="hyxbutton">
+        <button>hyx按钮</button>
+    </template>
+
+    <template id="box">
+        <div>box</div>
+    </template>
+
+
+    <template id="my-app">
+        <div>{{message}}</div>
+        <my-component></my-component>
+        <hyxbutton></hyxbutton>
+        <view-box></view-box>
+        <!-- dom中使用只支持 kebab-case -->
+        <ViewBox />
+    </template>
+
+    <script src="../vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    message: 'Hello Vue 3!',
+                };
+            },
+            methods: {},
+        };
+        const app = Vue.createApp(App);
+
+        app.component('my-component', {
+            template: '#my-component',
+            data() {
+                return {
+                    message: 'Hello Vue 3!',
+                };
+            },
+            methods: {},
+        });
+
+
+        app.component('hyxbutton', {
+            template: '#hyxbutton',
+            data() {
+                return {
+                    message: 'Hello Vue 3!',
+                };
+            },
+            methods: {},
+        });
+
+
+        app.component('ViewBox', {
+            template: '#box',
+            data() {
+                return {
+                    message: 'Hello Vue 3!',
+                };
+            },
+            methods: {},
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>

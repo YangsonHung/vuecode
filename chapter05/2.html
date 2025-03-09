@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #c7edcc">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <template id="my-app">
+            <div>{{message}}</div>
+
+            <red-box></red-box>
+        </template>
+
+        <template id="redBox">
+            <div style="background-color: red; width: 100px; height: 100px">{{content}}</div>
+        </template>
+
+        <script src="../vue.global.js"></script>
+        <script>
+            const redbox = {
+                template: '#redBox',
+                data() {
+                    return {
+                        content: 'i am redbox',
+                    };
+                },
+            };
+            const App = {
+                template: '#my-app',
+                data() {
+                    return {
+                        message: 'Hello Vue 3!',
+                    };
+                },
+                methods: {},
+                components: {
+                    RedBox: redbox,
+                },
+            };
+            Vue.createApp(App).mount('#app');
+        </script>
+    </body>
+</html>

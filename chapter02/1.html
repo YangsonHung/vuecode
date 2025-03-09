@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div>{{message}} - {{b}}</div>
+        <div>{{a*10}}</div>
+        <div>{{message.split(" ").join('-')}}</div>
+        <div>{{getMessage()}}</div>
+        <div>{{isShow?'三元运算符':''}}</div>
+        <button @click="toggle">切换</button>
+    </template>
+    <script src="../vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    isShow: true,
+                    b: "Hi",
+                    a: 10,
+                    message: 'Hello Vue 3!',
+                };
+            },
+            methods: {
+                toggle() {
+                    this.isShow = !this.isShow;
+                },
+                getMessage() {
+                    return this.message.split(" ").join('#');
+                }
+            },
+        };
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>

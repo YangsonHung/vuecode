@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+<body>
+<div id="app"></div>
+<template id="my-app">
+    <ul>
+        <li v-for="(value, key, index) in info">{{index}}.{{key}}:{{value}}</li>
+    </ul>
+    <ul>
+        <li v-for="(n, i) in 10">{{n}} - {{i}}</li>
+    </ul>
+</template>
+<script src="../vue.global.js"></script>
+<script>
+    const App = {
+        template: '#my-app',
+        data() {
+            return {
+                info: {
+                    name: 'jack',
+                    age: 25,
+                    sex: 'male'
+                }
+            };
+        },
+        methods: {},
+    };
+    Vue.createApp(App).mount('#app');
+</script>
+</body>
+</html>

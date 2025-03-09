@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #c7edcc;">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        请输入问题：<input type="text" v-model="question" />
+        {{answer}}
+    </template>
+    <script src="../vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    question: '',
+                    answer: '',
+                };
+            },
+            methods: {
+                getAnswer() {
+                    this.answer = '你的问题是：' + this.question + '，答案是：' + Math.random();
+                },
+            },
+            watch: {
+                // question(newQuestion, oldQuestion) {
+                //     console.log(newQuestion, oldQuestion);
+                //     if (newQuestion.indexOf('?') !== -1) {
+                //         this.getAnswer();
+                //     }
+                // },
+                question: {
+                    handler(newQuestion, oldQuestion) {
+                        console.log(newQuestion, oldQuestion);
+                        if (newQuestion.indexOf('?') !== -1) {
+                            this.getAnswer();
+                        }
+                    },
+                    immediate: true,
+                },
+            },
+        };
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>

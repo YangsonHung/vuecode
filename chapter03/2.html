@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #c7edcc;">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <template id="my-app">
+            <h2>方法</h2>
+            <div>{{getFullName()}}</div>
+            <div>{{getFullName()}}</div>
+            <div>{{getFullName()}}</div>
+            <br />
+            <h2>计算属性</h2>
+            <div>{{fullName}}</div>
+            <div>{{fullName}}</div>
+            <div>{{fullName}}</div>
+
+            <br>
+            <button v-on:click="changeName()">changeName</button>
+        </template>
+        <script src="../vue.global.js"></script>
+        <script>
+            const App = {
+                template: '#my-app',
+                data() {
+                    return {
+                        firstName: 'Yangson',
+                        lastName: 'Hung',
+                    };
+                },
+                methods: {
+                    getFullName() {
+                        console.log('getFullName', `${this.firstName} ${this.lastName}`);
+                        return `${this.firstName} ${this.lastName}`;
+                    },
+                    changeName() {
+                        this.firstName = 'Jack';
+                        this.lastName = 'Black';
+                    },
+                },
+                computed: {
+                    fullName() {
+                        console.log('fullName', `${this.firstName} ${this.lastName}`);
+                        return `${this.firstName} ${this.lastName}`;
+                    },
+                },
+            };
+            Vue.createApp(App).mount('#app');
+        </script>
+    </body>
+</html>

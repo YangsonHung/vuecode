@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <div>
+            <h1>Movies</h1>
+            <ul>
+                <li v-for="movie in movies" :key="movie.title">
+                    {{ movie.title }} - {{ movie.genre }}
+                </li>
+            </ul>
+            <input type="text" v-model="newMovie.title" />
+            <input type="text" v-model="newMovie.genre" />
+            <button @click="addMovie">Add Movie</button>
+        </div>
+    </template>
+    <script src="../vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    newMovie: { title: '', genre: '' },
+                    movies: [
+                        { title: 'The Matrix', genre: 'Action' },
+                        { title: 'The Godfather', genre: 'Crime' },
+                        { title: 'The Shawshank Redemption', genre: 'Drama' },
+                    ],
+                };
+            },
+            methods: {
+                addMovie() {
+                    this.movies.push({ ...this.newMovie });
+                    this.newMovie.title = '';
+                    this.newMovie.genre = '';
+                },
+            },
+        };
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>

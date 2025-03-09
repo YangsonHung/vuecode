@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>表达式实现</h2>
+        <div>{{firstName}} {{lastName}}</div>
+        <div>{{score >= 60 ? '及格' : '不及格'}}</div>
+        <div>{{message.split(' ').reverse().join()}}</div>
+        <br>
+        <h2>方法实现</h2>
+        <div>{{getFullName()}}</div>
+        <div>{{getScore()}}</div>
+        <div>{{reverseMessage()}}</div>
+        <br>
+        <h2>计算属性实现</h2>
+        <div>{{fullName}}</div>
+        <div>{{isPass}}</div>
+        <div>{{reverse}}</div>
+    </template>
+    <script src="../vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    firstName: 'Yangson',
+                    lastName: 'Hung',
+                    score: 99,
+                    message: 'Hello world',
+                };
+            },
+            methods: {
+                getFullName() {
+                    return `${this.firstName} ${this.lastName}`;
+                },
+                getScore() {
+                    return this.score >= 60 ? '及格' : '不及格';
+                },
+                reverseMessage() {
+                    return this.message.split(' ').reverse().join();
+                },
+            },
+            computed: {
+                fullName() {
+                    return `${this.firstName} ${this.lastName}`;
+                },
+                isPass() {
+                    return this.score >= 60 ? '及格' : '不及格';
+                },
+                reverse() {
+                    return this.message.split(' ').reverse().join();
+                },
+            },
+        };
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>
