@@ -10,7 +10,9 @@
     <ShowMessage v-bind="message"></ShowMessage>
     <ShowMessage title="标题22222" :count="count"></ShowMessage>
     <ShowMessage title="标题33333" count="33333"></ShowMessage> -->
-    <ShowMessage status="1"></ShowMessage>
+    <!-- <ShowMessage userName="9999" userAge="222222"></ShowMessage> -->
+    <!-- <ShowMessage user-name="88888" user-age="11111"></ShowMessage> -->
+    <NoPropAttribute id="hyx" class="why" name="jack"></NoPropAttribute>
 </template>
 
 <script>
@@ -20,6 +22,7 @@ import Footer from './AppFooter.vue'
 import StyleModule from './StyleModule.vue'
 import VbindStyle from './VbindStyle.vue';
 import ShowMessage from './ShowMessage.vue';
+import NoPropAttribute from './NoPropAttribute.vue';
 export default {
     data: function () {
         return {
@@ -38,7 +41,8 @@ export default {
         Footer,
         StyleModule,
         VbindStyle,
-        ShowMessage
+        // ShowMessage,
+        NoPropAttribute
     }
 }
 </script>
