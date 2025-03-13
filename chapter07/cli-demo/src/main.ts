@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 // import App from './App.vue'
-import App from './components/Provide和Inject/App.vue'
+import App from './components/插槽/App.vue'
 import router from './router'
 import store from './store'
 
