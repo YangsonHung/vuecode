@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './components/过渡模式/App.vue'
+import App from './components/动态组件/App.vue'
 import router from './router'
 import store from './store'
 

@@ -1,5 +1,12 @@
 <script>
+import HomeView from "./HomeView.vue";
+import AboutView from "./AboutView.vue";
+
 export default {
+  components: {
+    HomeView,
+    AboutView,
+  },
   data() {
     return {
       show: true,
@@ -12,24 +19,20 @@ export default {
 <template>
   <div>
     <button @click="show = !show">点击</button>
-    <transition name="fade" mode="out-in">
-      <h4 v-if="show" style="border: 1px solid pink; width: 110px">
-        Hello World
-      </h4>
-      <h4 v-else style="border: 1px solid pink; width: 110px">
-        你好 世界
-      </h4>
+    <transition name="fade" mode="out-in" appear>
+      <component :is="show ? 'HomeView' : 'AboutView'"></component>
     </transition>
   </div>
 </template>
 
 <style scoped>
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 1s ease;
 }
-
 </style>
