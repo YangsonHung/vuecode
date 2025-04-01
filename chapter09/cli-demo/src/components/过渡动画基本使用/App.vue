@@ -21,15 +21,12 @@ export default {
 </template>
 
 <style scoped>
-/* 进入之前，离开之后*/
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
-/*开始进入，离开应用*/
 .fade-enter-to, .fade-leave-from {
   opacity: 1;
 }
-/* 进入和离开过渡阶段的样式 */
 .fade-enter-active, .fade-leave-active {
   transition: opacity 2s ease;
 }
