@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './components/transition-group列表动画/App.vue'
+import App from './components/transition-group列表的交替动画/App.vue'
 import router from './router'
 import store from './store'
 import 'animate.css'
