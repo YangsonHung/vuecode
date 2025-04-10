@@ -1,11 +1,12 @@
 <template>
     <div>
-        <h4>当前计数器：{{ counter }}</h4>
+        <h4>当前计数器：{{ state.counter }}</h4>
         <button @click="increment">+1</button>
     </div>
 </template>
 
 <script>
+import { reactive } from 'vue';
 export default {
     props: {
         message: {
@@ -14,15 +15,15 @@ export default {
         },
     },
     setup() {
-        let counter = 100;
+        const state = reactive({ counter: 100 });
         const increment = () => {
-            counter++;
-            console.log('counter :>> ', counter);
+            state.counter++;
+            console.log('counter :>> ', state.counter);
         };
         return {
-            counter,
-            increment
-        }
+            state,
+            increment,
+        };
     },
 };
 </script>
