@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 // import App from './App.vue'
-import App from './06_watch/App.vue'
+import App from './09_setup顶层/App.vue'
 import router from './router'
 import store from './store'
 
